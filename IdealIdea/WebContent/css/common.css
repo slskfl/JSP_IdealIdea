@@ -1,0 +1,27 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+body{
+    width: 960px;
+    margin: 0 auto;
+    font-family: "맑은 고딕", sans-serif;
+}
+a{
+    /* 앵커 태그의 밑줄 없애기 */
+    text-decoration: none;
+}
+a:link{
+    color:rgb(180, 177, 177);
+}
+a:visited{
+    color: rgb(180, 177, 177);
+}
+li{
+    /* 글 앞머리 기호 없애기 */
+    list-style: none;
+}
+
+

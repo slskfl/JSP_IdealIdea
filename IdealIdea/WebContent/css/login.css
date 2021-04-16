@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.login_fieldset {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+    height: 300px;
+    margin-top: 100px;
+}
+.login_fieldset>legend{
+    font-size: 2em;
+}
+.login_fieldset input {
+    width:200px;
+    height:30px;
+    margin: 10px;
+}
+#id {
+    display: inline-block;
+    margin-top: 40px;
+}
+#login_btn {
+    display: inline-block;
+    vertical-align: center; 
+}
+#id span {
+    display: inline-block;
+    width:20px;
+    margin: 10px;
+}
+#pass {
+    margin-top:10px;
+}
+#login_btn button {
+    margin-left:5px;
+    padding:12px;
+    border-radius:5px;
+}
+#btns {
+    margin-top: 35px;
+    text-decoration:underline;    
+}
+#btns li {
+    margin-left:30px;
+    display:inline;
+}

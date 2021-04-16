@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* 푸터영역 */
+#footer{
+    height: 150px;
+    width: 100%;
+    color: rgb(180, 177, 177);
+    padding: 10px 20px;
+}
+#footer>ul{
+    display: block;
+} 
+#footer>ul>li{
+    display: inline-block;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+#footer>address{
+    display: iblock;
+    font-style: normal;
+    padding-right: 120px;
+} 

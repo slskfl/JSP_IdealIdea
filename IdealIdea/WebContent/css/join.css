@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.signup_fieldset{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 350px;
+    margin-top: 35px;
+    padding: 30px;
+}
+.signup_fieldset>legend{
+    font-size: 1.5em;
+}
+.signup_fieldset input{
+    width: 250px;
+    height: 25px;
+    margin: 6px;
+}
+#btn{
+    width: 100px;
+    height: 25px;
+}
+#address{
+    width: 450px;
+}
+#rdobtn{
+    width: 100px;
+    height: 20px;
+    margin-bottom: 0;
+}

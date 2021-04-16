@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+/* 메인 이미지 */
+#main_image{
+    height: 350px;
+    width: 960px;
+    position: relative;
+    margin-bottom: 15px;
+}
+#main_image .mainimg{
+    height: 331px;
+    width: 960px;
+    overflow: hidden;
+}
+
+/* 최신 아이템 게시글 */
+.itempost_latest {
+    width: 100%;
+    height: 370px;
+    margin-top: 10px;
+}
+.itempost{
+    display: inline-flex;
+    justify-content: space-around;
+    margin: 15px 15px 25px 15px;
+    text-align: center;
+}
+
+.images{
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    vertical-align: middle;
+}
+.itempost h4{
+    margin-top: 10px;
+}
+.itempost p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#contents{
+    height: 1000px;
+    width: 100%;
+}
+#con1{
+    width: 40%;
+    height: 100%;
+    float: left;
+    margin: 20px;
+}
+#con1 h2{
+    margin-top: 15px;
+    color: rgb(116, 112, 112);
+}
+#con1 img{
+    margin-top: 20px;
+    width: 380px;
+    height: 290px;
+    object-fit: cover;
+}
+#con1 p{
+    color: rgb(139, 136, 136);
+    margin: 20px;
+}
+#con2{
+    width: 23%;
+    height: 100%;
+    float: left;
+    margin: 20px;
+}
+#con2 h2{
+    margin-top: 15px;
+    color: rgb(116, 112, 112);
+}
+#con2 .event{
+    height: 25%;
+    border-bottom: 0.7px solid rgb(116, 112, 112);
+}
+.event img{
+    margin-top: 25px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-left: 5px;
+}
+.event h4{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.event p{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+#con3{
+    width: 25%;
+    height: 40%;
+    float: left;
+    margin-top: 20px;
+}
+#con3 h2{
+    margin-top: 15px;
+    color: rgb(116, 112, 112);
+}
+#con3 table{
+    margin-top: 20px;
+    height: 35%;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-left: 3px solid #369;
+}
+#con3 table th{
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #153d73;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#con3 table td{
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#con4{
+    width: 25%;
+    height: 50%;
+    float: left;
+}
+#con4 h2{
+    margin-top: 15px;
+    color: rgb(116, 112, 112);
+}
+#con4 table{
+    margin-top: 20px;
+    height: 45%;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-left: 3px solid #369;
+}
+#con4 table th{
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #153d73;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#con4 table td{
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+/* 푸터영역 */
+#footer{
+    background-color: rgb(227, 237, 235);
+}
