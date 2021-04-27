@@ -7,11 +7,11 @@
 <title>게시글 수정</title>
 </head>
 <body>
-<link href="css/common.css" type="text/css" rel="stylesheet"/>
 <link href="css/boardTable.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="js/noticeBoard.js"></script>
 </head>
 <body>
+<%@ include file="../header.jsp" %> 
 <div id="table_board">
         <h2>글쓰기</h2>
             <form name="frm" method="post" action="board.do">
@@ -57,5 +57,4 @@
                 </div>
                 </form>
         </div>
-</body>
-</html>
+<%@ include file="../footer.jsp" %> 

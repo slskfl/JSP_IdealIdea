@@ -12,6 +12,7 @@
 <script type="text/javascript" src="js/noticeBoard.js"></script>
 </head>
 <body>
+<%@ include file="../header.jsp" %> 
 <div id="table_board">
 		<h2>게시글 상세 보기</h2>
 		<table >
@@ -47,5 +48,4 @@
 				onclick="location.href='board.do?command=board_write_form'"/>
         </div>    
     </div>
-</body>
-</html>
+<%@ include file="../footer.jsp" %>

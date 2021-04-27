@@ -9,6 +9,7 @@
 <link href="${pageContext.request.contextPath}/css/company1.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+<%@ include file="../header.jsp" %> 
  <form id="form">
             <div id="company1">
                 <div>
@@ -29,5 +30,4 @@
                 </div>
             </div>
         </form>
-</body>
-</html>
+ <%@ include file="../footer.jsp" %> 

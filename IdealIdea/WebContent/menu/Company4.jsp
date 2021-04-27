@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +12,12 @@
 </head>
 <body>
 <div>
+<%@ include file="../header.jsp" %> 
         <form>
             <fieldset class="company_fieldset">
                 <legend>오시는 길</legend>
                 <div id="map">
-                    <img id="mapimg" src="images/map.png" alt="지도"/>
+                    <img id="mapimg" src="${contextPath}/images/map.png" alt="지도"/>
                 </div>
                 <div id="direction">
                     <h3>오시는 길</h3>
@@ -25,5 +28,4 @@
             </fieldset>
         </form>
     </div>
-</body>
-</html>
+<%@ include file="../footer.jsp" %>

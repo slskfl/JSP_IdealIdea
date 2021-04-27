@@ -9,7 +9,8 @@
     <link href="${pageContext.request.contextPath}/css/company2.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
- <div>
+<%@ include file="../header.jsp" %> 
+ 	<div>
         <form id="form">
             <div class="company2">
                 <h2>우리가 걸어온 길</h2>
@@ -67,5 +68,4 @@
             </div>
         </form>
     </div>
-</body>
-</html>
+<%@ include file="../footer.jsp" %> 

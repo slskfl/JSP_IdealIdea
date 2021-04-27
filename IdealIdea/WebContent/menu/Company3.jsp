@@ -8,6 +8,7 @@
 </head>
 <body>
 <div>
+<%@ include file="../header.jsp" %> 
         <form>
             <fieldset class="company_fieldset">
                 <legend>조직 구성도</legend>
@@ -15,5 +16,4 @@
             </fieldset>
         </form>
     </div>
-</body>
-</html>
+<%@ include file="../footer.jsp" %> 

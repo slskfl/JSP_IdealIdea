@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="com.ezen.dto.MemberVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +14,7 @@
 <form name="frm" method="post" action="member.do">
      <input type="hidden" name="command" value="member_update"/>
         <fieldset class="signup_fieldset">
-            <legend>회원 가입</legend>
+            <legend>회원 정보</legend>
          <%--  <p>아이디 <input type="text" size="30" name="userid" readonly value="${memberVO.userid }" /></p> --%>
             <p>아이디 <input type="text" size="30" name="userid" readonly value="${ memberVO.userId }" /></p>
             <p>이름 <input type="text" size="10" name="name" value="${memberVO.name }"/></p>

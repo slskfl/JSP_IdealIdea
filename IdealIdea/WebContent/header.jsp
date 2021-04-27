@@ -46,10 +46,10 @@
                 <li class="dropdown">
                     <a href="Company1.html" class ="dropbtn">Company</a>
                     <ul class="dropdown_contents">
-                        <li><a href="menu/Company1.jsp">회사 정보</a></li>
-                        <li><a href="menu/Company2.jsp">사업 현황</a></li>
-                        <li><a href="menu/Company3.jsp">조직 구성</a></li>
-                        <li><a href="menu/Company4.jsp">오시는 길</a></li>
+                        <li><a href="${contextPath}/menu/Company1.jsp">회사 정보</a></li>
+                        <li><a href="${contextPath}/menu/Company2.jsp">사업 현황</a></li>
+                        <li><a href="${contextPath}/menu/Company3.jsp">조직 구성</a></li>
+                        <li><a href="${contextPath}/menu/Company4.jsp">오시는 길</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -71,7 +71,13 @@
                 <li class="dropdown">
                     <a href="Member1.html" class ="dropbtn">Member</a>
                     <ul class="dropdown_contents">
-                        <li><a href="member.do?command=member_update_form&userid=<%=session.getAttribute("loginUserid")%>">회원 정보</a></li>
+                         <li>
+                    		<% if(session.getAttribute("loginUserid")==null){  %>
+                    			<a href="member.do?command=member_login_form">회원정보</a>
+                    		<% } else{ %>
+                         		<a href="member.do?command=member_update_form&userid=<%=session.getAttribute("loginUserid")%>">회원 정보</a>
+                        	<%} %>
+                         </li>
                         <li><a href="Member2.html">스크랩</a></li>
                         <li><a href="Member3.html">고객센터</a></li>
                     </ul>
