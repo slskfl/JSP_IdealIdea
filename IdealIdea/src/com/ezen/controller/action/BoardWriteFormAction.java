@@ -18,6 +18,7 @@ public class BoardWriteFormAction implements Action {
 		// TODO Auto-generated method stub
 		String path="noticeBoard/boardWrite.jsp";
 		String userid = request.getParameter("userid");
+		
 		System.out.println("BoardWriteFormAction의" + userid);
 		MemberDAO memberDAO=MemberDAO.getInstance();
 		MemberVO memberVO=memberDAO.getMember(userid);

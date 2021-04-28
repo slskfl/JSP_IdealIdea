@@ -4,9 +4,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    height: 350px;
+    height: 600px;
     margin-top: 35px;
     padding: 30px;
+    margin-bottom: 30px
 }
 .signup_fieldset>legend{
     font-size: 1.5em;

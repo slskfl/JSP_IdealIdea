@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>오시는 길</title>
-<link href="css/common.css" type="text/css" rel="stylesheet"/>
-    <link href="css/Company4.css" type="text/css" rel="stylesheet"/>
+    <link href="${contextPath}/css/Company4.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <div>

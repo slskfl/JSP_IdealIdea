@@ -61,6 +61,7 @@ private BoardDAO() {}
 
 	public void insertBoard(BoardVO boardVO) {
 		// TODO Auto-generated method stub
+		System.out.println("insertBoard(글쓰기 정보 입력)");
 		String sql="insert into noticeboard(num, name, email, title, content)"
 				+ " values (board_seq.nextval, ?, ?, ?, ?) ";
 		Connection conn=null;

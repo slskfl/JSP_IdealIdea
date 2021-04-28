@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>사업현황</title>
-<link href="css/common.css" type="text/css" rel="stylesheet"/>
-    <link href="${pageContext.request.contextPath}/css/company2.css" type="text/css" rel="stylesheet"/>
+    <link href="${contextPath}/css/company2.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <%@ include file="../header.jsp" %> 

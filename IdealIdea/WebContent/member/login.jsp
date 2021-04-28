@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link href="css/common.css" type="text/css" rel="stylesheet"/>
-<link href="css/login.css" type="text/css" rel="stylesheet"/>
+<link href="${contextPath}/css/login.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+<%@ include file="../header.jsp" %> 
 	<form name="frm" method="post" action="member.do">
 		<input type="hidden" name="command" value="member_login"/>
         <fieldset class="login_fieldset">
@@ -37,6 +39,4 @@
               </ul>
         </fieldset>
     </form>
-   
-</body>
-</html>
+ <%@ include file="../footer.jsp" %> 

@@ -34,7 +34,8 @@ public class ActionFactory {
 		
 		if(command.equals("main")) {
 			action = new MainAction();
-		}else if(command.equals("board_list")) { //글 목록 가져오기
+		}
+		if(command.equals("board_list")) { //글 목록 가져오기
 			action = new BoardListAction();
 		}else if(command.equals("board_write_form")) { //게시글 작성
 			action = new BoardWriteFormAction();

@@ -1,32 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="com.ezen.dto.MemberVO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>글쓰기</title>
 <link href="css/boardTable.css" type="text/css" rel="stylesheet"/>
+
+
 <script type="text/javascript" src="js/noticeBoard.js"></script>
 </head>
 <body>
 <%@ include file="../header.jsp" %> 
 <div id="table_board">
         <h2>글쓰기</h2>
-            <form name="frm" method="post" action="board.do" enctype="multipart/form-data">
-                <input type="hidden" name="command" value="board_write"/>
+            <form name="frm" method="post" action="<%=application.getContextPath() %>/board.do?command=board_write" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <th>작성자</th>
                         <td>
-                            <input class="post_info" type="text" size="20" name="userid" readonly
-                            value="<%=session.getAttribute("loginUserid")%>"/>
+                            <input class="post_info" type="text" size="20" name="name" readonly value="${memberVO.userId }"/>
                         </td>	
                     </tr>
                     <tr>
                         <th>이메일</th>
                         <td>
-                            <input class="post_info" type="text" size="30" name="email" readonly
-                            value="${memberVO.email }"/>
+                            <input class="post_info" type="text" size="30" name="email" readonly value="${memberVO.email }"/>
                         </td>	
                     </tr>
                     <tr>
@@ -46,7 +48,6 @@
                         <th>파일 <br>업로드</th>
                         <td>
                             <input type="file" name="selectFile">
-                            <!-- <input type="submit" name="OK"> -->
                         </td>	
                     </tr>
                 </table>

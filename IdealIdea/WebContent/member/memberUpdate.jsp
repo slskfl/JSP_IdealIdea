@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+     <c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <%@page import="com.ezen.dto.MemberVO"%>
 <!DOCTYPE html>
 <html>
@@ -9,8 +10,10 @@
 <meta charset="UTF-8">
 <title>회원정보 수정</title>
 <script type="text/javascript" src="js/member.js"></script>
+<link href="${contextPath}/css/join.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+<%@ include file="../header.jsp" %> 
 <form name="frm" method="post" action="member.do">
      <input type="hidden" name="command" value="member_update"/>
         <fieldset class="signup_fieldset">
@@ -24,31 +27,29 @@
             <p>이메일 <input type="text" size="100" name="email" value="${memberVO.email }"/></p>
             <p>주소 <input id="address" type="text" placeholder="주소" size="20" name="address" value="${memberVO.address }"/></p>    
             <p>회원 등급
-            <c:choose>
-				<c:when test="${memberVO.grade==1}">
-					<input type="radio" name="admin" value="1"
-					checked="checked"/> 사용자
-					<input type="radio" name="admin" value="0"/> 일반 사업가
-					<input type="radio" name="admin" value="-1"/> 관리자
-				</c:when>
-				<c:when test="${memberVO.grade==0}">
-					<input type="radio" name="admin" value="1"/> 사용자
-					<input type="radio" name="admin" value="0"
-					checked="checked"/> 일반 사업가
-					<input type="radio" name="admin" value="-1"/> 관리자
-				</c:when>
-				<c:when test="${memberVO.grade==-1}">
-					<input type="radio" name="admin" value="1"/> 사용자
-					<input type="radio" name="admin" value="0"/> 일반 사업가
-					<input type="radio" name="admin" value="-1"
-					checked="checked"/> 관리자
-				</c:when>
-			</c:choose>
-           
+	            <c:choose>
+					<c:when test="${memberVO.grade==1}">
+						<input type="radio" name="admin" value="1"
+						checked="checked"/> 사용자
+						<input type="radio" name="admin" value="0"/> 일반 사업가
+						<input type="radio" name="admin" value="-1"/> 관리자
+					</c:when>
+					<c:when test="${memberVO.grade==0}">
+						<input type="radio" name="admin" value="1"/> 사용자
+						<input type="radio" name="admin" value="0"
+						checked="checked"/> 일반 사업가
+						<input type="radio" name="admin" value="-1"/> 관리자
+					</c:when>
+					<c:when test="${memberVO.grade==-1}">
+						<input type="radio" name="admin" value="1"/> 사용자
+						<input type="radio" name="admin" value="0"/> 일반 사업가
+						<input type="radio" name="admin" value="-1"
+						checked="checked"/> 관리자
+					</c:when>
+				</c:choose>
             </p>
             <input type="submit" value="확인" onclick="return joinCheck();"/>
 			<input type="submit" value="취소"/>
         </fieldset>
     </form>
-</body>
-</html>
+ <%@ include file="../footer.jsp" %> 

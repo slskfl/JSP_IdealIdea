@@ -4,8 +4,9 @@
     margin-right: auto;
     text-align: center;
     width: 50%;
-    height: 300px;
+    height: 500px;
     margin-top: 100px;
+    matgin-bottom: 50px;
 }
 .login_fieldset>legend{
     font-size: 2em;

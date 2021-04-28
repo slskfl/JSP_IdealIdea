@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 보기(${boardVO.num})</title>
-<link href="css/boardList.css" type="text/css" rel="stylesheet"/>
+<link href="${contextPath}css/boardList.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="js/noticeBoard.js"></script>
 </head>
 <body>
@@ -46,7 +46,7 @@
     			} else{
     				if(session.getAttribute("loginUserGrade").equals(-1)){
     		%>	
-    					<a href="board.do?command=board_write_form">글쓰기</a>
+    					<a href="board.do?command=board_write_form&userid=<%=session.getAttribute("loginUserid")%>">글쓰기</a>
     		<%
     				}
     				else{
