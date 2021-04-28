@@ -19,10 +19,12 @@ public class MainAction implements Action {
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("MainAction 호출");
 		String path="main.jsp";
-		BoardDAO boardDAO=BoardDAO.getInstance();
-		List<BoardVO> boardList=boardDAO.selectAllBoard();
 		
-		request.setAttribute("boardList", boardList);
+		
+		BoardDAO boardDAO=BoardDAO.getInstance();
+		List<BoardVO> noticeBoardList=boardDAO.selectSixBoard("noticeboard");
+		
+		request.setAttribute("noticeBoardList", noticeBoardList);
 		RequestDispatcher dispatcher=request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

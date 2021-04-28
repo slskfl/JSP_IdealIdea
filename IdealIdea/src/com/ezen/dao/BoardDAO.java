@@ -20,14 +20,14 @@ private BoardDAO() {}
 	}
 	
 	
-	public List<BoardVO> selectAllBoard() {
+	public List<BoardVO> selectAllBoard(String boardname) {
 		List<BoardVO> list=new ArrayList<BoardVO>();
 		BoardVO boardVO = null; 
 		System.out.println("selectAllBoard()가 호출되었습니다.");
 		Connection conn=null;
 		Statement stmt=null;
 		ResultSet rs=null;
-		String sql="select * from noticeboard";
+		String sql="select * from "+ boardname;
 		
 		try {
 			conn=DBManager.getConnection();
@@ -44,8 +44,40 @@ private BoardDAO() {}
 				boardVO.setContent(rs.getString("content"));
 				boardVO.setReadCount(rs.getInt("readCount"));
 				boardVO.setWritedate(rs.getTimestamp("writedate"));
-				System.out.println(rs.getInt("num"));
-				System.out.println(rs.getTimestamp("writedate"));
+				list.add(boardVO);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, stmt, rs);
+		}
+		
+		return list;
+	}
+	
+	public List<BoardVO> selectSixBoard(String boardname) {
+		List<BoardVO> list=new ArrayList<BoardVO>();
+		BoardVO boardVO = null; 
+		System.out.println("selectSixBoard()가 호출되었습니다.");
+		Connection conn=null;
+		Statement stmt=null;
+		ResultSet rs=null;
+		String sql="select * from (select * from "+ boardname +" order by num desc) where rownum<=6";
+		
+		try {
+			conn=DBManager.getConnection();
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			while(rs.next()) {
+				boardVO=new BoardVO();
+				boardVO.setNum(rs.getInt("num"));
+				boardVO.setName(rs.getString("name"));
+				boardVO.setEmail(rs.getString("email"));
+				boardVO.setTitle(rs.getString("title"));
+				boardVO.setContent(rs.getString("content"));
+				boardVO.setReadCount(rs.getInt("readCount"));
+				boardVO.setWritedate(rs.getTimestamp("writedate"));
 				list.add(boardVO);
 			}
 			
@@ -59,10 +91,11 @@ private BoardDAO() {}
 	}
 
 
-	public void insertBoard(BoardVO boardVO) {
+
+	public void insertBoard(BoardVO boardVO, String boardname) {
 		// TODO Auto-generated method stub
 		System.out.println("insertBoard(글쓰기 정보 입력)");
-		String sql="insert into noticeboard(num, name, email, title, content)"
+		String sql="insert into "+ boardname +"(num, name, email, title, content)"
 				+ " values (board_seq.nextval, ?, ?, ?, ?) ";
 		Connection conn=null;
 		PreparedStatement pstmt=null; 
@@ -83,9 +116,9 @@ private BoardDAO() {}
 	}
 
 
-	public void updateReadCount(int num) {
+	public void updateReadCount(int num, String boardname) {
 		// TODO Auto-generated method stub
-		String sql="update noticeboard set readCount=readCount+1 "
+		String sql="update "+ boardname +" set readCount=readCount+1 "
 				+ "where num=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -102,11 +135,11 @@ private BoardDAO() {}
 	}
 
 
-	public BoardVO selectOneBoardByNum(int num) {
+	public BoardVO selectOneBoardByNum(int num, String boardname) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("selectOneBoardByNum("+num+") 이 호출되었습니다." );
-		String sql = "select * from noticeboard where num=?";
+		String sql = "select * from "+ boardname +" where num=?";
 		BoardVO boardVO = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -126,6 +159,7 @@ private BoardDAO() {}
 				boardVO.setContent(rs.getString("content"));
 				boardVO.setReadCount(rs.getInt("readCount"));
 				boardVO.setWritedate(rs.getTimestamp("writedate"));
+				boardVO.setFileName(rs.getString("file"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,10 +170,9 @@ private BoardDAO() {}
 		return boardVO;
 	}
 
-
-	public void updateBoard(BoardVO boardVO) {
+	public void updateBoard(BoardVO boardVO, String boardname) {
 		// TODO Auto-generated method stub
-		String sql="update noticeboard set name=?, email=?, title=?, content=? where num=?";
+		String sql="update "+ boardname +" set name=?, email=?, title=?, content=? where num=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -159,9 +192,9 @@ private BoardDAO() {}
 	}
 
 
-	public void deleteBoard(int num) {
+	public void deleteBoard(int num, String boardname) {
 		// TODO Auto-generated method stub
-		String sql = "delete from noticeboard where num=?";
+		String sql = "delete from "+ boardname +" where num=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try { 

@@ -19,11 +19,13 @@ public class BoardUpdateFormAction implements Action {
 		
 		String path="noticeBoard/boardUpdate.jsp";
 		int num=Integer.parseInt(request.getParameter("num"));
+		String boardname=request.getParameter("boardname");
+		System.out.println("BoardListAction boardname: " + boardname);
 		
 		BoardDAO boardDAO=BoardDAO.getInstance();
-		BoardVO boardVO=boardDAO.selectOneBoardByNum(num);
+		BoardVO boardVO=boardDAO.selectOneBoardByNum(num, boardname);
 		request.setAttribute("boardVO", boardVO);
-		
+		request.setAttribute("boardname", boardname);
 		RequestDispatcher dispatcher=request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

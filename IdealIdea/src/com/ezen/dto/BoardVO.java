@@ -10,6 +10,14 @@ public class BoardVO {
 	private String content;
 	private int readCount;
 	private Timestamp writedate;
+	private String fileName;
+	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public int getNum() {
 		return num;
 	}

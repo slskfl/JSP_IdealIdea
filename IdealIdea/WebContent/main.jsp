@@ -93,17 +93,17 @@
         </div>
         <div id="con3">
             <div>
-                <h2>Notice</h2>
+                <h2><a href="board.do?command=board_list&boardname=noticeboard">Notice</a></h2>
                 <div>
                     <table>
                         <tr class="notice_category">
                             <th>No.</th>
                             <th>Title</th>
                         </tr>
-                        <c:forEach var="board" items="${boardList }">
+                        <c:forEach var="board" items="${noticeBoardList }">
 							<tr>
 								<td>${board.num }</td> 
-								<td><a href="board.do?command=board_read&num=${board.num}"/>${board.title}</td>
+								<td><a href="board.do?command=board_read&num=${board.num}&boardname=noticeboard"/>${board.title}</td>
 							</tr>
 						</c:forEach>
                     </table>

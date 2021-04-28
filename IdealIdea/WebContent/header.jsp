@@ -56,7 +56,7 @@
                     <a href="PRcenter1.html" class ="dropbtn">PR center</a>
                     <ul class="dropdown_contents">
                         <li><a href="PRcenter1.html">뉴스</a></li>
-                        <li><a href="board.do?command=board_list">공지사항</a></li>
+                        <li><a href="board.do?command=board_list&boardname=noticeboard">공지사항</a></li>
                         <li><a href="PRcenter3.html">이벤트</a></li>
                     </ul>
                 </li>
@@ -64,8 +64,8 @@
                     <a href="Item1.html" class ="dropbtn">Item</a>
                     <ul class="dropdown_contents">
                         <li><a href="Item1.html">Info.</a></li>
-                        <li><a href="Item2.html">Item 소개</a></li>
-                        <li><a href="Item3.html">Community</a></li>
+                        <li><a href="board.do?command=board_list&boardname=userboard">Item 소개</a></li>
+                        <li><a href="board.do?command=board_list&boardname=businessboard">Community</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

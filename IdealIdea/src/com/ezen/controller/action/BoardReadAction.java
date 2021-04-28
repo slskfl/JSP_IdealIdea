@@ -19,12 +19,15 @@ public class BoardReadAction implements Action {
 		
 		String path="noticeBoard/boardRead.jsp";
 		int num=Integer.parseInt(request.getParameter("num"));
+		String boardname=request.getParameter("boardname");
+		System.out.println("BoardReadAction boardname: " + boardname);
 		
 		BoardDAO boardDAO= BoardDAO.getInstance();
-		boardDAO.updateReadCount(num);
-		BoardVO boardVO=boardDAO.selectOneBoardByNum(num);
+		boardDAO.updateReadCount(num, boardname);
+		BoardVO boardVO=boardDAO.selectOneBoardByNum(num, boardname);
 		
 		request.setAttribute("boardVO", boardVO);
+		request.setAttribute("boardname", boardname);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

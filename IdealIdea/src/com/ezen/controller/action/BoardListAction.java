@@ -18,11 +18,16 @@ public class BoardListAction implements Action{
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("BoardListAction 호출");
+		
+		String boardname=request.getParameter("boardname");
+		System.out.println("BoardListAction boardname: " + boardname);
+		
 		String path="noticeBoard/boardList.jsp";
 		BoardDAO boardDAO=BoardDAO.getInstance();
-		List<BoardVO> boardList=boardDAO.selectAllBoard();
+		List<BoardVO> boardList=boardDAO.selectAllBoard(boardname);
 		
 		request.setAttribute("boardList", boardList);
+		request.setAttribute("boardname", boardname);
 		RequestDispatcher dispatcher=request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

@@ -14,9 +14,14 @@ public class BoardDeleteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int num = Integer.parseInt(request.getParameter("num"));
-		BoardDAO boardDAO = BoardDAO.getInstance();
-		boardDAO.deleteBoard(num);
+		String boardname=request.getParameter("boardname");
+		System.out.println("BoardListAction boardname: " + boardname);
 		
+		
+		BoardDAO boardDAO = BoardDAO.getInstance();
+		boardDAO.deleteBoard(num, boardname);
+		
+		request.setAttribute("boardname", boardname);
 		new BoardListAction().execute(request, response);
 	}
 

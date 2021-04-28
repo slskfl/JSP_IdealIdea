@@ -2,22 +2,21 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <%@page import="com.ezen.dto.MemberVO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>글쓰기</title>
-<link href="css/boardTable.css" type="text/css" rel="stylesheet"/>
-
-
+<link href="${contextPath}/css/boardTable.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="js/noticeBoard.js"></script>
 </head>
 <body>
 <%@ include file="../header.jsp" %> 
 <div id="table_board">
         <h2>글쓰기</h2>
-            <form name="frm" method="post" action="<%=application.getContextPath() %>/board.do?command=board_write" enctype="multipart/form-data">
+            <form name="frm" method="post" action="<%=application.getContextPath() %>/board.do?command=board_write&boardname=${boardname}" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <th>작성자</th>
@@ -58,7 +57,7 @@
                     onclick="return boardCheck();"/>
                 <input class="btn" type="reset" value="초기화" />
                 <input class="btn" type="button" value="목록"
-                    onclick="location.href='board.do?command=board_list'"/>
+                    onclick="location.href='board.do?command=board_list&boardname=${boardname}'"/>
                 </div>
                 </form>
         </div>

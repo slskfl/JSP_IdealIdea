@@ -1,5 +1,15 @@
 show user;
 
+create table members(
+    id		VARCHAR(30) 	primary key,
+    name	VARCHAR(10)		not null,
+    pw		VARCHAR(50)		not null,
+    tel		VARCHAR(20)		not null,
+    email	VARCHAR(100)	not null,
+    address	VARCHAR(100),
+    grade	INT             default 1
+);
+
 CREATE TABLE noticeBoard(
     num         NUMBER(5)       PRIMARY KEY,
     name        VARCHAR2(20)    NOT NULL,
@@ -12,11 +22,55 @@ CREATE TABLE noticeBoard(
 CREATE SEQUENCE board_seq START WITH 1 INCREMENT BY 1;
 
 INSERT INTO noticeboard(num, name, email, title, content)
-VALUES(board_seq.nextval, '╟Э╦╝юз', 'admin@gmail.com', 'ю╔ фДюлаЖ а║╟к ╫ц╟ё', '2021-04-07 10~17╫ц╠НаЖ х╗фДюлаЖ а║╟к╫ц╟ёют╢о╢ы. юл©К©║ ╨рфМю╩ ╣Е╥а╪╜ ак╪шгу╢о╢ы.');
+VALUES(board_seq.nextval, 'О©╫О©╫О©╫О©╫О©╫О©╫', 'admin@gmail.com', 'О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫ц╟О©╫', '2021-04-07 10~17О©╫ц╠О©╫О©╫О©╫ х╗О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫к╫ц╟О©╫О©╫т╢о╢О©╫. О©╫л©К©║ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫к╪О©╫О©╫у╢о╢О©╫.');
 
 INSERT INTO noticeboard(num, name, email, title, content)
-VALUES(board_seq.nextval, '╟Э╦╝юз', 'admin@gmail.com','х╦©Ь╟║ют ╫ц гй╣╤╩Ггв', '╧щ╣Е╫ц юо╧щ ╩Г©Кюз©м ╩Г╬В╟║╦╕ ╪╠ецгьаж╫й╫ц©ю. ╩Г╬В╟║╦╕ ╪╠ецго╪лю╩ ╟Ф©Л ╧щ╣Е╫ц аУ╦М ╪╜╥Ы╦╕ а╕цБго╪е╬ъгу╢о╢ы.');
+VALUES(board_seq.nextval, 'О©╫О©╫О©╫О©╫О©╫О©╫', 'admin@gmail.com','х╦О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫й╣О©╫О©╫О©╫О©╫О©╫', 'О©╫щ╣О©╫О©╫ О©╫о╧О©╫ О©╫О©╫О©╫О©╫з©О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╫й╫ц©О©╫. О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫о╪О©╫О©╫О©╫ О©╫О©╫О©╫ О©╫щ╣О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫о╪е╬О©╫О©╫у╢о╢О©╫.');
 
 
 
 select * from noticeboard;
+
+CREATE TABLE UserBoard(
+    num         NUMBER(5)       PRIMARY KEY,
+    name        VARCHAR2(20)    NOT NULL,
+    email       VARCHAR2(30)    NOT NULL,
+    title       VARCHAR2(30)    NOT NULL,
+    content     VARCHAR2(3000)  NOT NULL,
+    readcount   NUMBER(4)       DEFAULT 0,
+    writedate   date            DEFAULT SYSDATE
+);
+
+CREATE SEQUENCE userboard_seq START WITH 1 INCREMENT BY 1;
+
+INSERT INTO UserBoard(num, name, email, title, content)
+VALUES(board_seq.nextval, 'test1', 'test1@gmail.com', 'Л┌╛Л ╘Л·░ Й╡▄Л▀°М▄░', 'Л┌╛Л ╘Л·░ Й╡▄Л▀°М▄░ М┘▄Л┼╓М┼╦');
+
+SELECT
+    *
+FROM userboard;
+
+CREATE TABLE BusinessBoard(
+    num         NUMBER(5)       PRIMARY KEY,
+    name        VARCHAR2(20)    NOT NULL,
+    email       VARCHAR2(30)    NOT NULL,
+    title       VARCHAR2(30)    NOT NULL,
+    content     VARCHAR2(3000)  NOT NULL,
+    readcount   NUMBER(4)       DEFAULT 0,
+    writedate   date            DEFAULT SYSDATE
+);
+
+CREATE SEQUENCE businessboard_seq START WITH 1 INCREMENT BY 1;
+
+INSERT INTO businessboard(num, name, email, title, content)
+VALUES(board_seq.nextval, 'test1', 'test1@gmail.com', 'Л┌╛Л≈┘Й╟─ Й╡▄Л▀°М▄░', 'Л┌╛Л≈┘Й╟─ Й╡▄Л▀°М▄░ М┘▄Л┼╓М┼╦');
+
+SELECT
+    *
+FROM businessboard;
+
+COMMIT;
+
+ALTER TABLE noticeBoard ADD filename VARCHAR2(50);
+ALTER TABLE userBoard ADD filename VARCHAR2(50);
+ALTER TABLE businessBoard ADD filename VARCHAR2(50);

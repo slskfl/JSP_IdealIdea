@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -92,14 +93,21 @@ public class BoardWriteAction implements Action {
         String email=request.getParameter("email");
         System.out.println("BoardWriteAction email: "+email);
         
+        String boardname=request.getParameter("boardname");
+		System.out.println("BoardListAction boardname: " + boardname);
+        
 		BoardVO boardVO=new BoardVO();
 		boardVO.setName(request.getParameter("name"));
 		boardVO.setEmail(request.getParameter("email"));
 		boardVO.setTitle(request.getParameter("title"));
 		boardVO.setContent(request.getParameter("content"));
 		BoardDAO boardDAO=BoardDAO.getInstance();
-		boardDAO.insertBoard(boardVO);
-		new BoardListAction().execute(request, response);
+		boardDAO.insertBoard(boardVO, boardname);
+		
+		String path="noticeBoard/boardList.jsp";
+		request.setAttribute("boardname", boardname);
+		RequestDispatcher dispatcher=request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
 		
 	}
 

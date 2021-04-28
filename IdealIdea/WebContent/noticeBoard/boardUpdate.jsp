@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,7 @@
 <title>게시글 수정</title>
 </head>
 <body>
-<link href="css/boardTable.css" type="text/css" rel="stylesheet"/>
+<link href="${contextPath}/css/boardTable.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="js/noticeBoard.js"></script>
 </head>
 <body>
@@ -15,7 +17,7 @@
 <div id="table_board">
         <h2>글쓰기</h2>
             <form name="frm" method="post" action="board.do">
-                <input type="hidden" name="command" value="board_update"/>
+                <input type="hidden" name="command" value="board_update&boardname=${boardname }"/>
                 <input type="hidden" name="num" value="${boardVO.num }"/>
                 <table>
                     <tr>
@@ -24,7 +26,6 @@
                             <input class="post_info" type="text" size="20" name="name" 
                             value="${boardVO.name }"/>
                         </td>	
-                    </tr>
                     <tr>
                         <th>이메일</th>
                         <td>
@@ -53,7 +54,7 @@
 	                <input class="btn" type="submit" value="수정 완료" 
 	                onclick="return updateCheck();"/>
 					<input class="btn" type="button" value="목록"
-					onclick="location.href='board.do?command=board_list'"/>
+					onclick="location.href='board.do?command=board_list&boardname=${boardname }'"/>
                 </div>
                 </form>
         </div>

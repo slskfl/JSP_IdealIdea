@@ -16,6 +16,9 @@ public class BoardUpdateAction implements Action {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
+		String boardname=request.getParameter("boardname");
+		System.out.println("BoardListAction boardname: " + boardname);
+		
 		BoardVO boardVO=new BoardVO();
 		boardVO.setNum(Integer.parseInt(request.getParameter("num")));
 		boardVO.setName(request.getParameter("name"));
@@ -24,9 +27,10 @@ public class BoardUpdateAction implements Action {
 		boardVO.setContent(request.getParameter("content"));
 		
 		BoardDAO boardDAO = BoardDAO.getInstance();
-		boardDAO.updateBoard(boardVO);
+		boardDAO.updateBoard(boardVO, boardname);
 		
 		//목록화면으로 이동하기 
+		request.setAttribute("boardname", boardname);
 		new BoardListAction().execute(request, response);
 	}
 

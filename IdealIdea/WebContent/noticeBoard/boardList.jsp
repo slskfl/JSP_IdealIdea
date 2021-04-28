@@ -2,13 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <%@page import="com.ezen.dto.MemberVO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>게시글 보기(${boardVO.num})</title>
-<link href="${contextPath}css/boardList.css" type="text/css" rel="stylesheet"/>
+<link href="${contextPath}/css/boardList.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="js/noticeBoard.js"></script>
 </head>
 <body>
@@ -28,7 +29,7 @@
                         <c:forEach var="board" items="${boardList }">
 							<tr>
 								<td>${board.num }</td> 
-								<td><a href="board.do?command=board_read&num=${board.num}"/>${board.title}</td> 
+								<td><a href="board.do?command=board_read&num=${board.num}&boardname=${boardname}"/>${board.title}</td> 
 								<td>${board.name }</td> 
 								<td><fmt:formatDate value="${board.writedate }" /></td> 
 								<td>${board.readCount }</td> 
@@ -46,12 +47,12 @@
     			} else{
     				if(session.getAttribute("loginUserGrade").equals(-1)){
     		%>	
-    					<a href="board.do?command=board_write_form&userid=<%=session.getAttribute("loginUserid")%>">글쓰기</a>
+    					<a href="board.do?command=board_write_form&userid=<%=session.getAttribute("loginUserid")%>&boardname=${boardname}">글쓰기</a>
     		<%
     				}
     				else{
     		%>
-    					<a href="board.do?command=board_list">관리자용 글쓰기</a>
+    					<a href="board.do?command=board_list&boardname=${boardname }">관리자용 글쓰기</a>
     				
     		<%		}
     			}
